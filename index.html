@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Your Initials</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            font-size: 95%;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .font-serif-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .link-underline {
+            position: relative;
+            text-decoration: none;
+            color: #111827;
+        }
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #d1d5db;
+            transition: background-color 0.2s ease;
+        }
+        .link-underline:hover::after {
+            background-color: #111827;
+        }
+        .arrow-icon {
+            transition: transform 0.2s ease-out;
+        }
+        .group:hover .arrow-icon {
+            transform: translate(2px, -2px);
+        }
+    </style>
+</head>
+<body class="bg-[#FAFAFA] antialiased">
+    <div class="max-w-6xl mx-auto px-6 py-8 lg:h-screen lg:flex lg:items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 w-full">
+
+            <!-- Left Column (70% on desktop) -->
+            <div class="lg:col-span-2 space-y-6">
+
+                <!-- Header -->
+                <header>
+                    <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 font-serif-display">
+                        Vishnu Prakash
+                    </h1>
+                </header>
+
+                <!-- Summary -->
+                <section>
+                    <div class="space-y-2 leading-relaxed">
+                        <p class="text-gray-900 font-medium text-base">
+                            I'm a Blockchain Engineer with 5 years of experience in crypto-native companies.
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            Designed, implemented, and deployed multiple on-chain smart contracts for perpetual trading, including bridge contracts, settlement contracts, funding payment, and authentication.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Experience -->
+                <section>
+                    <h2 class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-3 font-mono">
+                        Experience
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="group">
+                            <div class="flex items-center justify-between mb-1">
+                                <h3 class="font-semibold text-sm"><a href="https://noice.so" class="link-underline font-medium inline-flex items-center gap-1">Noice<svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></h3>
+                                <span class="text-xs text-gray-400 font-mono">Dec'24 - May'25</span>
+                            </div>
+                            <ul class="space-y-1 text-gray-700 text-sm">
+                                <li>Built low-latency blockchain data pipelines, backend APIs, and automated trading systems on Base.</li>
+                            </ul>
+                        </div>
+                        <div class="group">
+                            <div class="flex items-center justify-between mb-1">
+                                <h3 class="font-semibold text-sm"><a href="https://www.crunchbase.com/organization/zkx" class="link-underline font-medium inline-flex items-center gap-1">ZKX<svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></h3>
+                                <span class="text-xs text-gray-400 font-mono">Oct'21 — Aug'24</span>
+                            </div>
+                            <ul class="space-y-1 text-gray-700 text-sm">
+                                <li>Designed and shipped high-throughput DeFi infrastructure across Starknet and a Substrate appchain, processing $2B+ in trades, securing $10M+ TVL, and optimizing core trading, bridging, and funding mechanisms.</li>
+                            </ul>
+                        </div>
+                        <div class="group">
+                            <div class="flex items-center justify-between mb-1">
+                                <h3 class="font-semibold text-sm"><a href="https://www.crunchbase.com/organization/copperwire-systems" class="link-underline font-medium inline-flex items-center gap-1">Copperwire Systems<svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></h3>
+                                <span class="text-xs text-gray-400 font-mono">Oct'20 - Dec'20</span>
+                            </div>
+                            <ul class="space-y-1 text-gray-700 text-sm">
+                                <li>Deployed and operated a Hyperledger application on AWS, collaborating with the web team to containerize and run the network on Kubernetes.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects -->
+                <section>
+                    <h2 class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-3 font-mono">
+                        Projects
+                    </h2>
+                    <ul class="space-y-3">
+                        <li class="group">
+                            <a href="https://github.com/merkle-groot/Perpetual-Raffle" class="link-underline font-medium inline-flex items-center gap-1 text-sm">
+                                Perpetual Raffle
+                                <svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                            <p class="text-gray-700 mt-1 text-sm">An alternative approach to NFT raffles that ensures fair value distribution among all participants.</p>
+                        </li>
+                        <li class="group">
+                            <a href="https://github.com/merkle-groot/ZstarkWarp" class="link-underline font-medium inline-flex items-center gap-1 text-sm">
+                                ZstarkWarp
+                                <svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                            <p class="text-gray-700 mt-1 text-sm">ZK optimistic bridge b/w Starknet and Ztarknet.</p>
+                        </li>
+                        <li class="group">
+                            <a href="https://github.com/reetbatra/chronos-gambit" class="link-underline font-medium inline-flex items-center gap-1 text-sm">
+                                Chronos Gambit
+                                <svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                            <p class="text-gray-700 mt-1 text-sm">Designed and implemented Aptos Move smart contracts for a prediction market utilizing the Logarithmic Market Scoring Rule (LMSR) for fair and continuous pricing.</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Connect -->
+                <section>
+                    <h2 class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-3 font-mono">
+                        Connect
+                    </h2>
+                    <div class="flex items-center gap-4 text-sm text-gray-600">
+                        <a href="https://github.com/merkle-groot" class="link-underline">
+                            GitHub
+                        </a>
+                        <span class="text-gray-300">/</span>
+                        <a href="mailto:visheh10@gmail.com" class="link-underline">
+                            Email
+                        </a>
+                        <span class="text-gray-300">/</span>
+                        <a href="https://www.linkedin.com/in/ml-vishnu-prakash/" class="link-underline">
+                            LinkedIn
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column (30% on desktop) -->
+            <div class="lg:col-span-1">
+                <div class="sticky top-4">
+                    <div class="w-full">
+                        <img
+                            src="dp.jpg"
+                            alt="Profile"
+                            class="w-full h-auto object-cover rounded-xl"
+                        />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
