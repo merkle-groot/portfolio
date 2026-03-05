@@ -3,184 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Your Initials</title>
+    <title>Vishnu Prakash</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Anton&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         * {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Space Mono', monospace;
         }
-        html {
-            font-size: 95%;
+        .font-display {
+            font-family: 'Anton', sans-serif;
         }
-        .font-mono {
-            font-family: 'JetBrains Mono', monospace;
+
+        /* Graph paper background - smaller grid */
+        .bg-graph {
+            background-color: #f0ede6;
+            background-image:
+                linear-gradient(#c8e6c9 1px, transparent 1px),
+                linear-gradient(90deg, #c8e6c9 1px, transparent 1px);
+            background-size: 16px 16px;
         }
-        .font-serif-display {
-            font-family: 'Playfair Display', serif;
+
+        /* Brutalist border + shadow */
+        .brutal {
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0 #000;
+            transition: all 0.1s ease;
         }
-        .link-underline {
+        .brutal:hover {
+            box-shadow: 2px 2px 0 #000;
+            transform: translate(2px, 2px);
+        }
+        .brutal:active {
+            box-shadow: 0 0 0 #000;
+            transform: translate(4px, 4px);
+        }
+
+        /* Brutalist buttons */
+        .btn-brutal {
+            border: 3px solid #000;
+            background-color: #a8f0a0;
+            box-shadow: 4px 4px 0 #000;
+            transition: all 0.1s ease;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .btn-brutal:hover {
+            background-color: #92db8a;
+            box-shadow: 2px 2px 0 #000;
+            transform: translate(2px, 2px);
+        }
+        .btn-brutal:active {
+            background-color: #7cc274;
+            box-shadow: 0 0 0 #000;
+            transform: translate(4px, 4px);
+        }
+
+        /* Photo frame - more rotation, intentional taped look */
+        .photo-frame {
+            border: 3px solid #000;
+            background: #fff;
+            transform: rotate(-4deg);
+            box-shadow: 6px 6px 0 #000;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .photo-frame:hover {
+            transform: rotate(-3deg);
+            box-shadow: 4px 4px 0 #000;
+        }
+
+        /* Tab styles - folder look */
+        .tab-container {
+            display: flex;
+            gap: 0;
+            margin-bottom: -3px;
             position: relative;
-            text-decoration: none;
-            color: #111827;
+            z-index: 20;
         }
-        .link-underline::after {
-            content: '';
+        .tab {
+            border: 3px solid #000;
+            border-bottom: none;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            background: #f0ede6;
+            position: relative;
+            top: 3px;
+            transition: all 0.15s ease;
+            z-index: 1;
+        }
+        .tab.active {
+            background: #000;
+            color: #fff;
+            top: -3px;
+            padding-top: 0.7rem;
+            padding-bottom: 0.7rem;
+            z-index: 10;
+        }
+        .tab-content {
+            border: 3px solid #000;
+            background: #fff;
+            padding: 1rem;
+            box-shadow: 4px 4px 0 #000;
+            position: relative;
+            z-index: 5;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        /* Project links */
+        .project-link {
+            border: 2px solid #000;
+            padding: 0.5rem 0.75rem;
+            background: #fff;
+            box-shadow: 3px 3px 0 #000;
+            transition: all 0.1s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .project-link:hover {
+            background-color: #a8f0a0;
+            box-shadow: 1px 1px 0 #000;
+            transform: translate(2px, 2px);
+        }
+
+        /* Entry descriptions with stronger border */
+        .entry-desc {
+            padding-left: 1rem;
+            border-left: 3px solid #a8f0a0;
+        }
+
+        /* Bullet points */
+        .entry-list {
+            padding-left: 0.75rem;
+            margin-top: 0.25rem;
+        }
+        .entry-list li {
+            padding-left: 0.6rem;
+            margin-bottom: 0.25rem;
+            position: relative;
+            line-height: 1.5;
+            font-size: 0.8rem;
+        }
+        .entry-list li::before {
+            content: '>';
             position: absolute;
-            width: 100%;
-            height: 1px;
-            bottom: 0;
             left: 0;
-            background-color: #d1d5db;
-            transition: background-color 0.2s ease;
+            color: #a8f0a0;
+            font-weight: 700;
         }
-        .link-underline:hover::after {
-            background-color: #111827;
+        .entry-list li:last-child {
+            margin-bottom: 0;
         }
-        .arrow-icon {
-            transition: transform 0.2s ease-out;
+
+        /* External arrow */
+        .arrow-external {
+            font-size: 1rem;
+            line-height: 1;
         }
-        .group:hover .arrow-icon {
-            transform: translate(2px, -2px);
+
+        /* Mobile: photo on top under name */
+        @media (max-width: 1023px) {
+            .main-container {
+                display: flex;
+                flex-direction: column;
+            }
+            .photo-container {
+                order: -1;
+                margin-bottom: 1rem;
+            }
+            .right-column {
+                order: 1;
+            }
+        }
+
+        /* Desktop: no scroll */
+        @media (min-width: 1024px) {
+            body {
+                height: 100vh;
+                overflow: hidden;
+            }
         }
     </style>
 </head>
-<body class="bg-[#FAFAFA] antialiased">
-    <div class="max-w-6xl mx-auto px-6 py-8 lg:h-screen lg:flex lg:items-center">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 w-full">
+<body class="bg-graph antialiased">
+    <div class="max-w-4xl mx-auto px-4 py-4 lg:h-full lg:flex lg:items-center">
+        <!-- Main container -->
+        <div class="main-container grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6 w-full">
 
-            <!-- Left Column (70% on desktop) -->
-            <div class="lg:col-span-2 space-y-6">
+            <!-- Photo (mobile only - shows under name) -->
+            <div class="photo-frame photo-container lg:hidden">
+                <img src="dp.jpg" alt="Vishnu Prakash" class="w-full h-auto block">
+            </div>
 
-                <!-- Header -->
+            <!-- Left Column -->
+            <div class="lg:col-span-3 space-y-6 lg:space-y-4">
+
+                <!-- Header - Name on one line -->
                 <header>
-                    <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 font-serif-display">
-                        Vishnu Prakash
+                    <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-none tracking-tight">
+                        VISHNU PRAKASH
                     </h1>
                 </header>
 
-                <!-- Summary -->
+                <!-- Summary - with brutal border + shadow -->
+                <section class="brutal bg-white p-3 md:p-4">
+                    <p class="text-xs md:text-sm leading-relaxed">
+                        I'm a Blockchain Engineer with 5 years of experience in crypto-native companies.
+                    </p>
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Designed, implemented, and deployed multiple on-chain smart contracts for perpetual trading, including bridge contracts, settlement contracts, funding payment, and authentication.
+                    </p>
+                </section>
+
+                <!-- Stats strip -->
+                <section class="brutal bg-[#a8f0a0] py-2 px-4 flex items-center justify-center">
+                    <span class="font-bold text-xs tracking-wide">Cypherpunk | Developer | Anarcho-Capitalist | Quizzer</span>
+                </section>
+
+                <!-- Tabs: Experience / Projects -->
                 <section>
-                    <div class="space-y-2 leading-relaxed">
-                        <p class="text-gray-900 font-medium text-base">
-                            I'm a Blockchain Engineer with 5 years of experience in crypto-native companies.
-                        </p>
-                        <p class="text-gray-600 text-sm">
-                            Designed, implemented, and deployed multiple on-chain smart contracts for perpetual trading, including bridge contracts, settlement contracts, funding payment, and authentication.
-                        </p>
+                    <div class="tab-container">
+                        <button class="tab active" data-tab="experience">Experience</button>
+                        <button class="tab" data-tab="projects">Projects</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Experience Content -->
+                        <div id="experience-content" class="space-y-3 lg:space-y-2">
+                            <!-- Noice -->
+                            <div>
+                                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-0.5">
+                                    <div>
+                                        <a href="https://noice.so" class="font-bold text-xs hover:text-green-700 transition-colors flex items-center gap-0.5">
+                                            Noice <span class="arrow-external">↗</span>
+                                        </a>
+                                    </div>
+                                    <span class="text-[10px] text-gray-500">Dec'24 - May'25</span>
+                                </div>
+                                <ul class="entry-list text-xs">
+                                    <li>Built low-latency blockchain data pipelines on Base</li>
+                                    <li>Developed backend APIs and automated trading systems</li>
+                                    <li>Optimized infrastructure for high-frequency operations</li>
+                                </ul>
+                            </div>
+
+                            <!-- ZKX -->
+                            <div>
+                                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-0.5">
+                                    <div>
+                                        <a href="https://www.crunchbase.com/organization/zkx" class="font-bold text-xs hover:text-green-700 transition-colors flex items-center gap-0.5">
+                                            ZKX <span class="arrow-external">↗</span>
+                                        </a>
+                                    </div>
+                                    <span class="text-[10px] text-gray-500">Oct'21 — Aug'24</span>
+                                </div>
+                                <ul class="entry-list text-xs">
+                                    <li>Designed and shipped high-throughput DeFi infrastructure across Starknet and Substrate appchain</li>
+                                    <li>Processed $2B+ in trades and secured $10M+ TVL</li>
+                                    <li>Optimized core trading, bridging, and funding mechanisms</li>
+                                </ul>
+                            </div>
+
+                            <!-- Copperwire Systems -->
+                            <div>
+                                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-0.5">
+                                    <div>
+                                        <a href="https://www.crunchbase.com/organization/copperwire-systems" class="font-bold text-xs hover:text-green-700 transition-colors flex items-center gap-0.5">
+                                            Copperwire <span class="arrow-external">↗</span>
+                                        </a>
+                                    </div>
+                                    <span class="text-[10px] text-gray-500">Oct'20 - Dec'20</span>
+                                </div>
+                                <ul class="entry-list text-xs">
+                                    <li>Deployed Hyperledger application on AWS</li>
+                                    <li>Containerized network on Kubernetes</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Projects Content (hidden by default) -->
+                        <div id="projects-content" class="space-y-3 hidden">
+                            <!-- fTornado -->
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <a href="https://github.com/merkle-groot/fTornado" class="font-bold text-xs hover:text-green-700 transition-colors flex items-center gap-0.5">
+                                        fTornado <span class="arrow-external">↗</span>
+                                    </a>
+                                    <span class="text-[10px] text-gray-500">2026</span>
+                                </div>
+                                <p class="text-xs leading-relaxed">Privacy-preserving token wrapper combining Tornado Cash anonymity pools with Zama's FHE-based confidential tokens (ERC7984)</p>
+                            </div>
+
+                            <!-- ZstarkWarp -->
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <a href="https://github.com/merkle-groot/ZstarkWarp" class="font-bold text-xs hover:text-green-700 transition-colors flex items-center gap-0.5">
+                                        ZstarkWarp <span class="arrow-external">↗</span>
+                                    </a>
+                                    <span class="text-[10px] text-gray-500">2025</span>
+                                </div>
+                                <p class="text-xs leading-relaxed">ZK optimistic bridge b/w Starknet and Ztarknet</p>
+                            </div>
+
+                            <!-- wad.nr -->
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <a href="https://github.com/merkle-groot/wad.nr" class="font-bold text-xs hover:text-green-700 transition-colors flex items-center gap-0.5">
+                                        wad.nr <span class="arrow-external">↗</span>
+                                    </a>
+                                    <span class="text-[10px] text-gray-500">2024</span>
+                                </div>
+                                <p class="text-xs leading-relaxed">A WAD (Wei-As-Decimal) fixed-point arithmetic library for Noir, targeting the Aztec Network. Provides safe 18-decimal fixed-point math with overflow-resistant mul_div operations.</p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
-                <!-- Experience -->
-                <section>
-                    <h2 class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-3 font-mono">
-                        Experience
-                    </h2>
-                    <div class="space-y-4">
-                        <div class="group">
-                            <div class="flex items-center justify-between mb-1">
-                                <h3 class="font-semibold text-sm"><a href="https://noice.so" class="link-underline font-medium inline-flex items-center gap-1">Noice<svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></h3>
-                                <span class="text-xs text-gray-400 font-mono">Dec'24 - May'25</span>
-                            </div>
-                            <ul class="space-y-1 text-gray-700 text-sm">
-                                <li>Built low-latency blockchain data pipelines, backend APIs, and automated trading systems on Base.</li>
-                            </ul>
-                        </div>
-                        <div class="group">
-                            <div class="flex items-center justify-between mb-1">
-                                <h3 class="font-semibold text-sm"><a href="https://www.crunchbase.com/organization/zkx" class="link-underline font-medium inline-flex items-center gap-1">ZKX<svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></h3>
-                                <span class="text-xs text-gray-400 font-mono">Oct'21 — Aug'24</span>
-                            </div>
-                            <ul class="space-y-1 text-gray-700 text-sm">
-                                <li>Designed and shipped high-throughput DeFi infrastructure across Starknet and a Substrate appchain, processing $2B+ in trades, securing $10M+ TVL, and optimizing core trading, bridging, and funding mechanisms.</li>
-                            </ul>
-                        </div>
-                        <div class="group">
-                            <div class="flex items-center justify-between mb-1">
-                                <h3 class="font-semibold text-sm"><a href="https://www.crunchbase.com/organization/copperwire-systems" class="link-underline font-medium inline-flex items-center gap-1">Copperwire Systems<svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></h3>
-                                <span class="text-xs text-gray-400 font-mono">Oct'20 - Dec'20</span>
-                            </div>
-                            <ul class="space-y-1 text-gray-700 text-sm">
-                                <li>Deployed and operated a Hyperledger application on AWS, collaborating with the web team to containerize and run the network on Kubernetes.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Projects -->
-                <section>
-                    <h2 class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-3 font-mono">
-                        Projects
-                    </h2>
-                    <ul class="space-y-3">
-                        <li class="group">
-                            <a href="https://github.com/merkle-groot/Perpetual-Raffle" class="link-underline font-medium inline-flex items-center gap-1 text-sm">
-                                Perpetual Raffle
-                                <svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                                </svg>
-                            </a>
-                            <p class="text-gray-700 mt-1 text-sm">An alternative approach to NFT raffles that ensures fair value distribution among all participants.</p>
-                        </li>
-                        <li class="group">
-                            <a href="https://github.com/merkle-groot/ZstarkWarp" class="link-underline font-medium inline-flex items-center gap-1 text-sm">
-                                ZstarkWarp
-                                <svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                                </svg>
-                            </a>
-                            <p class="text-gray-700 mt-1 text-sm">ZK optimistic bridge b/w Starknet and Ztarknet.</p>
-                        </li>
-                        <li class="group">
-                            <a href="https://github.com/reetbatra/chronos-gambit" class="link-underline font-medium inline-flex items-center gap-1 text-sm">
-                                Chronos Gambit
-                                <svg class="w-3 h-3 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                                </svg>
-                            </a>
-                            <p class="text-gray-700 mt-1 text-sm">Designed and implemented Aptos Move smart contracts for a prediction market utilizing the Logarithmic Market Scoring Rule (LMSR) for fair and continuous pricing.</p>
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Connect -->
-                <section>
-                    <h2 class="text-xs font-medium text-gray-400 uppercase tracking-widest mb-3 font-mono">
-                        Connect
-                    </h2>
-                    <div class="flex items-center gap-4 text-sm text-gray-600">
-                        <a href="https://github.com/merkle-groot" class="link-underline">
-                            GitHub
+                <!-- Mobile Connect -->
+                <div class="lg:hidden">
+                    <p class="text-[10px] text-gray-800 mb-2 font-bold">// reach me</p>
+                    <div class="space-y-2">
+                        <a href="https://github.com/merkle-groot" class="btn-brutal block text-center py-2 text-xs">
+                            GitHub ↗
                         </a>
-                        <span class="text-gray-300">/</span>
-                        <a href="mailto:visheh10@gmail.com" class="link-underline">
-                            Email
+                        <a href="mailto:visheh10@gmail.com" class="btn-brutal block text-center py-2 text-xs">
+                            Email @
                         </a>
-                        <span class="text-gray-300">/</span>
-                        <a href="https://www.linkedin.com/in/ml-vishnu-prakash/" class="link-underline">
-                            LinkedIn
+                        <a href="https://www.linkedin.com/in/ml-vishnu-prakash/" class="btn-brutal block text-center py-2 text-xs">
+                            LinkedIn in
                         </a>
                     </div>
-                </section>
+                </div>
 
             </div>
 
-            <!-- Right Column (30% on desktop) -->
-            <div class="lg:col-span-1">
-                <div class="sticky top-4">
-                    <div class="w-full">
-                        <img
-                            src="dp.jpg"
-                            alt="Profile"
-                            class="w-full h-auto object-cover rounded-xl"
-                        />
+            <!-- Right Column -->
+            <div class="lg:col-span-1 right-column hidden lg:block">
+                <div class="sticky top-4 lg:top-6 space-y-3 lg:space-y-4">
+                    <!-- Photo -->
+                    <div class="photo-frame">
+                        <img src="dp.jpg" alt="Vishnu Prakash" class="w-full h-auto block">
+                    </div>
+
+                    <!-- Connect -->
+                    <div>
+                        <p class="text-[10px] text-gray-800 mb-2 font-bold">// reach me</p>
+                        <div class="space-y-2">
+                            <a href="https://github.com/merkle-groot" class="btn-brutal block text-center py-2 text-xs">
+                                GitHub ↗
+                            </a>
+                            <a href="mailto:visheh10@gmail.com" class="btn-brutal block text-center py-2 text-xs">
+                                Email @
+                            </a>
+                            <a href="https://www.linkedin.com/in/ml-vishnu-prakash/" class="btn-brutal block text-center py-2 text-xs">
+                                LinkedIn in
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+
+    <script>
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        const experienceContent = document.getElementById('experience-content');
+        const projectsContent = document.getElementById('projects-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                if (tab.dataset.tab === 'experience') {
+                    experienceContent.classList.remove('hidden');
+                    projectsContent.classList.add('hidden');
+                } else {
+                    experienceContent.classList.add('hidden');
+                    projectsContent.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
