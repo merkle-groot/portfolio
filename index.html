@@ -128,8 +128,8 @@
             box-shadow: 4px 4px 0 #000;
             position: relative;
             z-index: 5;
-            height: 300px;
-            overflow-y: auto;
+            height: 280px;
+            overflow-y: scroll;
         }
 
         /* Project links */
@@ -176,6 +176,46 @@
         }
         .entry-list li:last-child {
             margin-bottom: 0;
+        }
+
+        /* Stylized scrollbar - brutalist style */
+        .tab-content::-webkit-scrollbar {
+            width: 14px;
+            -webkit-appearance: none;
+        }
+        .tab-content::-webkit-scrollbar-track {
+            background: #fff;
+            border: 3px solid #000;
+            border-right: none;
+        }
+        .tab-content::-webkit-scrollbar-thumb {
+            background: #a8f0a0;
+            border: 4px solid #000;
+            border-radius: 0;
+            transition: none;
+            box-shadow: 0 0 0 2px #000;
+        }
+        .tab-content::-webkit-scrollbar-thumb:vertical {
+            min-height: 60px;
+        }
+        .tab-content::-webkit-scrollbar-thumb:window-inactive {
+            background: #a8f0a0;
+        }
+        .tab-content::-webkit-scrollbar-thumb:hover {
+            background: #7cc274;
+        }
+        .tab-content::-webkit-scrollbar-thumb:active {
+            background: #5fae57;
+        }
+        /* Force scrollbar always visible on macOS */
+        .tab-content {
+            -webkit-overflow-scrolling: auto;
+        }
+
+        /* Firefox scrollbar */
+        .tab-content {
+            scrollbar-width: auto;
+            scrollbar-color: #a8f0a0 #fff;
         }
 
         /* External arrow */
@@ -253,20 +293,19 @@
                     <div class="tab-content">
                         <!-- Experience Content -->
                         <div id="experience-content" class="space-y-3 lg:space-y-2">
-                            <!-- Noice -->
+                            <!-- Copperwire Systems -->
                             <div>
                                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-0.5">
                                     <div>
-                                        <a href="https://noice.so" class="font-bold text-xs hover:text-green-700 transition-colors flex items-center gap-0.5">
-                                            Noice <span class="arrow-external">↗</span>
+                                        <a href="https://www.crunchbase.com/organization/copperwire-systems" class="font-bold text-xs hover:text-green-700 transition-colors flex items-center gap-0.5">
+                                            Copperwire <span class="arrow-external">↗</span>
                                         </a>
                                     </div>
-                                    <span class="text-[10px] text-gray-500">Dec'24 - May'25</span>
+                                    <span class="text-[10px] text-gray-500">Oct'20 - Dec'20</span>
                                 </div>
                                 <ul class="entry-list text-xs">
-                                    <li>Built low-latency blockchain data pipelines on Base</li>
-                                    <li>Developed backend APIs and automated trading systems</li>
-                                    <li>Optimized infrastructure for high-frequency operations</li>
+                                    <li>Deployed and maintained a <b>Hyperledger</b> application on <b>AWS</b></li>
+                                    <li>Coordinated with the Web Team to <b>containerize</b> a Hyperledger instance on <b>Kubernetes</b></li>
                                 </ul>
                             </div>
 
@@ -281,25 +320,43 @@
                                     <span class="text-[10px] text-gray-500">Oct'21 — Aug'24</span>
                                 </div>
                                 <ul class="entry-list text-xs">
-                                    <li>Designed and shipped high-throughput DeFi infrastructure across Starknet and Substrate appchain</li>
-                                    <li>Processed $2B+ in trades and secured $10M+ TVL</li>
-                                    <li>Optimized core trading, bridging, and funding mechanisms</li>
+                                    <li>Designed and shipped high-throughput <b>DeFi</b> infrastructure across <b>Starknet</b> and <b>Substrate</b> appchain</li>
+                                    <li>Processed <b>$2B+</b> in trades and secured <b>$10M+ TVL</b></li>
+                                    <li>Optimized core <b>trading</b>, <b>bridging</b>, and funding mechanisms</li>
                                 </ul>
                             </div>
 
-                            <!-- Copperwire Systems -->
+                            <!-- Noice -->
                             <div>
                                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-0.5">
                                     <div>
-                                        <a href="https://www.crunchbase.com/organization/copperwire-systems" class="font-bold text-xs hover:text-green-700 transition-colors flex items-center gap-0.5">
-                                            Copperwire <span class="arrow-external">↗</span>
+                                        <a href="https://noice.so" class="font-bold text-xs hover:text-green-700 transition-colors flex items-center gap-0.5">
+                                            Noice <span class="arrow-external">↗</span>
                                         </a>
                                     </div>
-                                    <span class="text-[10px] text-gray-500">Oct'20 - Dec'20</span>
+                                    <span class="text-[10px] text-gray-500">Dec'24 - May'25</span>
                                 </div>
                                 <ul class="entry-list text-xs">
-                                    <li>Deployed Hyperledger application on AWS</li>
-                                    <li>Containerized network on Kubernetes</li>
+                                    <li>Built <b>low-latency</b> <b>blockchain</b> data pipelines on <b>Base</b></li>
+                                    <li>Developed <b>backend APIs</b> and automated <b>trading</b> systems</li>
+                                    <li>Optimized infrastructure for <b>high-frequency</b> operations</li>
+                                </ul>
+                            </div>
+
+                            <!-- BuildFlow -->
+                            <div>
+                                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-0.5">
+                                    <div>
+                                        <a href="https://www.linkedin.com/company/buildflowhq/" class="font-bold text-xs hover:text-green-700 transition-colors flex items-center gap-0.5">
+                                            BuildFlow <span class="arrow-external">↗</span>
+                                        </a>
+                                    </div>
+                                    <span class="text-[10px] text-gray-500">Aug'25 - Feb'26</span>
+                                </div>
+                                <ul class="entry-list text-xs">
+                                    <li>Reduced <b>API</b> response latency by optimizing <b>async</b> execution, minimizing <b>allocations</b>, and improving <b>database</b> access patterns</li>
+                                    <li>Implemented <b>concurrent task processing</b> using <b>Rust</b>'s async <b>runtime</b> and <b>channels</b></li>
+                                    <li>Built scalable <b>REST</b> and <b>RPC</b> APIs using frameworks such as <b>Axum</b>, <b>Actix</b>, or <b>Warp</b></li>
                                 </ul>
                             </div>
                         </div>
@@ -314,7 +371,10 @@
                                     </a>
                                     <span class="text-[10px] text-gray-500">2026</span>
                                 </div>
-                                <p class="text-xs leading-relaxed">A WAD (Wei-As-Decimal) fixed-point arithmetic library for Noir, targeting the Aztec Network. Provides safe 18-decimal fixed-point math with overflow-resistant mul_div operations.</p>
+                                <ul class="entry-list text-xs">
+                                    <li>A <b>WAD</b> (Wei-As-Decimal) <b>fixed-point arithmetic</b> library for <b>Noir</b>, targeting the <b>Aztec Network</b></li>
+                                    <li>Provides safe <b>18-decimal</b> fixed-point math with overflow-resistant <b>mul_div</b> operations</li>
+                                </ul>
                             </div>
 
                             <!-- fTornado -->
@@ -325,7 +385,9 @@
                                     </a>
                                     <span class="text-[10px] text-gray-500">2026</span>
                                 </div>
-                                <p class="text-xs leading-relaxed">Privacy-preserving token wrapper combining Tornado Cash anonymity pools with Zama's FHE-based confidential tokens (ERC7984)</p>
+                                <ul class="entry-list text-xs">
+                                    <li><b>Privacy-preserving</b> token wrapper combining <b>Tornado Cash</b> anonymity pools with Zama's <b>FHE</b>-based confidential tokens (<b>ERC7984</b>)</li>
+                                </ul>
                             </div>
 
                             <!-- ZstarkWarp -->
@@ -336,7 +398,10 @@
                                     </a>
                                     <span class="text-[10px] text-gray-500">2025</span>
                                 </div>
-                                <p class="text-xs leading-relaxed">ZK optimistic bridge b/w Starknet and Ztarknet</p>
+                                <ul class="entry-list text-xs">
+                                    <li><b>Privacy-preserving</b> <b>cross-chain bridge</b> enabling private token transfers between <b>Starknet</b> and <b>Ztarknet</b></li>
+                                    <li>Combines <b>zero-knowledge proofs</b> with an economic security model using <b>solver validation</b> to mitigate <b>bridge-hack risks</b></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
